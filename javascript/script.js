@@ -1,7 +1,14 @@
 
-function createButtons() {
+
 
 var movieArray = [];
+
+
+function createButtons() {
+
+   $("#movies-view").empty()
+
+
 
 
 
@@ -12,7 +19,7 @@ var buttonCreate =  $("<button>");
 buttonCreate.addClass("MovieTitle");
 buttonCreate.attr("data-name", movieArray[i]);
 buttonCreate.text(movieArray[i]);
-$(".container").append(buttonCreate);
+$("#movies-view").append(buttonCreate);
 
 
 }
