@@ -23,8 +23,18 @@ $("#movies-view").append(buttonCreate);
 
 
 }
-
+// ------------------------------------------
 }
+
+var movieButtons = movieArray [i]  
+
+$(".MovieTitle").on("click", function(){
+   event.preventDefault(); 
+
+var buttonValues = $()
+
+})
+// ====================================
 
 
 var movieArray = [];
@@ -41,3 +51,6 @@ $("#add-movie").on("click",function(event){
    });
 
    createButtons() 
+
+
+
