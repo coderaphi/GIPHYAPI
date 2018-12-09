@@ -1,56 +1,88 @@
-
-
-
-var movieArray = [];
-
+var cartoonArray = ["Tarzan", "Simspons", "Felix", "Flinstones", "Top Cat", " Dragon Ball Z", "G.I. Joe ", "DuckTales ", "The Transformers ", "Teenage Mutant Ninja Turtles", "X-Men", "Scooby Doo"];
 
 function createButtons() {
-
-   $("#movies-view").empty()
-
-
-
-
-
-for (var i =0 ;  i<movieArray.length; i++){
-
-var buttonCreate =  $("<button>");    
    
-buttonCreate.addClass("MovieTitle");
-buttonCreate.attr("data-name", movieArray[i]);
-buttonCreate.text(movieArray[i]);
-$("#movies-view").append(buttonCreate);
+   $("#cartoon-view").empty();
 
+   for (var i = 0; i < cartoonArray.length; i++) {
+
+      var movieName = cartoonArray[i];
+
+      var buttonCreate = $(
+         '<button/>',
+         {
+            class: "movieTitle",
+            'data-name': movieName,
+            click: alertMovieName
+         }
+      );
+
+      buttonCreate.text(movieName);
+   
+      $("#cartoon-view").append(buttonCreate);
+
+   }
 
 }
-// ------------------------------------------
-}
 
-var movieButtons = movieArray [i]  
+$("#add-movie").on("click", function (event) {
+   event.preventDefault();
 
-$(".MovieTitle").on("click", function(){
-   event.preventDefault(); 
+   var movieName = $("#name-input").val().trim();
+   cartoonArray.push(movieName);
+   createButtons();
+   //  console.log(movieArray)
 
-var buttonValues = $()
+});
 
-})
-// ====================================
-
-
-var movieArray = [];
+$( document ).ready(function() {
+   createButtons();
+});
 
 
-$("#add-movie").on("click",function(event){
- event.preventDefault(); 
-   
-    var movieName =  $("#name-input").val().trim()
-    movieArray.push(movieName)
-    createButtons() 
-    console.log(movieArray)
-   
+function alertMovieName() {
+
+   $('.images').empty();
+
+   var cartoonTitle = $(this).attr("data-name");
+
+  
+
+   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoonTitle + "&api_key=ATpprVj7uGgGK70HvBM2dy0BGO6h9tNn&limit=8";
+
+   console.log(queryURL);
+
+   $.ajax({
+      url: queryURL,
+      method: "GET"
+   }).then(function (response) {
+
+      var dataResults = response.data;
+
+      for (var i = 0; i < dataResults.length; i++) {
+
+         var imgData = dataResults[i];
+
+         var displayGif = $(
+            "<img/>",
+            {
+               src: imgData.images.original_still.url,
+               width: 300,
+               height: 250,
+               'data-play-url': imgData.images.original.url,
+               click: function() {
+                  var playUrl = $(this).attr("data-play-url");
+                  var currentSrc = $(this).attr("src");
+                  $(this).attr('src', playUrl);
+                  $(this).attr('data-play-url', currentSrc);
+               }
+            }
+         );
+
+
+         $(".images").prepend(displayGif);
+
+      }
+
    });
-
-   createButtons() 
-
-
-
+};
