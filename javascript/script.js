@@ -1,4 +1,4 @@
-var cartoonArray = ["Tarzan", "Simspons", "Felix", "Flinstones", "Top Cat", " Dragon Ball Z", "G.I. Joe ", "DuckTales ", "The Transformers ", "Teenage Mutant Ninja Turtles", "X-Men", "Scooby Doo"];
+var cartoonArray = ["Tarzan", "Simspons", "Felix", "Flinstones", "Top Cat", " Dragon Ball Z", "G.I. Joe ", "DuckTales ", "The Transformers ", "Teenage Mutant Ninja Turtles", "X-Men", "Scooby Doo", "Jetsons", "Batman", "Superman", "Captain Planet", "Jem", "Mickey Mouse", "Barney", "Spider Man", "Barbie"];
 
 function createButtons() {
    
@@ -11,7 +11,7 @@ function createButtons() {
       var buttonCreate = $(
          '<button/>',
          {
-            class: "movieTitle",
+            class: "cartoonTitle",
             'data-name': movieName,
             click: alertMovieName
          }
@@ -31,7 +31,7 @@ $("#add-movie").on("click", function (event) {
    var movieName = $("#name-input").val().trim();
    cartoonArray.push(movieName);
    createButtons();
-   //  console.log(movieArray)
+   
 
 });
 

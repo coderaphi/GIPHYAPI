@@ -1,12 +1,52 @@
 #input-name {
 
-    font-size: 65px;
+    font-size: 45px;
+    font-family: 'Unlock', cursive;
     
 
 }
 
 
-#form-control {
+.cartoonTitle {
+    background-color: #1ea9f4;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {opacity: 1}
 
-    background-color:blue;
-}
+
+  #add-movie {
+
+    background-color: #872284;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+
+
+  }
+
+  #mainArea {
+
+    margin-left: 15%;
+    margin-right:auto;
+  }
+
+  #input-name {
+
+    margin-left:12%;
+  }
+
+ #cartoon-view {
+
+    margin-left: 12%;
+    margin-right: 12%;
+
+
+ }
