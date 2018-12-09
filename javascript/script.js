@@ -48,7 +48,7 @@ function alertMovieName() {
 
   
 
-   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoonTitle + "&api_key=ATpprVj7uGgGK70HvBM2dy0BGO6h9tNn&limit=8";
+   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + cartoonTitle + "&api_key=ATpprVj7uGgGK70HvBM2dy0BGO6h9tNn&limit=9";
 
    console.log(queryURL);
 
